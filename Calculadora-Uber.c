@@ -1,7 +1,12 @@
 #include<stdio.h>
 
+//funcao para calcular o gasto de combustivel, recebe 2 parametros, litros e preco do combustivel, retorna o valor gasto
+float calcularGastoCombustivel (float litros, float precoCombustivel){
+    return litros * precoCombustivel;
+}
+
 int main(){
-    float kmRodado, litros, gastoCombustivel, totalDia, mediaCarro, preCombustivel, totalLiquido, valorKmBruto, valorKmLiquido;
+    float kmRodado, litros, gastoCombustivel, totalDia, mediaCarro, precoCombustivel, totalLiquido, valorKmBruto, valorKmLiquido;
     int  opcao;
     printf("Qual combustivel foi usado?\n Digite 1-gasolina ou 2-etanol ");
     scanf("%i", &opcao);
@@ -22,11 +27,14 @@ int main(){
         printf("Qual a media do carro: \n");
         scanf("%f", &mediaCarro);
         printf("Qual preco do combustivel: \n");
-        scanf("%f", &preCombustivel);
+        scanf("%f", &precoCombustivel);
         printf("Qual valor final do dia: \n");
         scanf("%f", &totalDia);
         litros = kmRodado / mediaCarro;
-        gastoCombustivel = litros * preCombustivel;
+        
+        //variavel gastoCombustivel recebe o valor retornado da funcao calcularGastoCombustivel, passando como parametros litros e precoCombustivel
+        gastoCombustivel = calcularGastoCombustivel(litros, precoCombustivel);
+        
         totalLiquido = totalDia - gastoCombustivel;
         valorKmBruto = totalDia / kmRodado;
         valorKmLiquido = totalLiquido / kmRodado;
